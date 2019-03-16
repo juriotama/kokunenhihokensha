@@ -1,0 +1,38 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+
+    <p>国民年金のどんな被保険者</p>
+    <p>
+        <label><input type="checkbox" id="koseinenkin" value="true" >厚生年金被保険者</label>
+    </p>
+
+    <p>
+        <label><input type="checkbox" id="hihuyou" value="true" >被扶養者</label>
+    </p>
+    <p><label>年齢：<input type="text" id="age" size="40" maxlength="20" value="30"></label></p>
+
+    <p>
+        <label><input type="checkbox" id="birthday" value="true" >昭和40年4月1日以前生まれ</label>
+    </p>
+
+    <p>
+        <label><input type="checkbox" id="addressJp" value="true" checked="checked">日本居住</label>
+    </p>
+
+    <p>
+        <label><input type="checkbox" id="hasJapan" value="true" checked="checked">日本国籍</label>
+    </p>
+    
+
+    
+    <p>
+        <label><input type="checkbox" id="jukyu" value="true" >老齢給付受給資格</label>
+    </p>
+    <p><input type="submit" id="calc" value="何被保険者かな？"></p>
+
+    <div id="result"></div>
+
+</body>
