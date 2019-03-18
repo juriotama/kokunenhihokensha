@@ -17,13 +17,6 @@ $(function(){
         birthday = $("#birthday").prop("checked");
         jukyu = $("#jukyu").prop("checked");
 
-        // console.log(koseinenkin);
-        // console.log(hihuyou);
-        // console.log(age);
-        // console.log(addressJp);
-        // console.log(hasJapan);
-        // console.log(birthday);
-        // console.log(jukyu);
         if(koseinenkin && (!(age>=65 && jukyu))){
             console.log("2号");
             result="2号"
@@ -49,6 +42,7 @@ $(function(){
             }
         }
 
-        $("#result").text(result);
+        $("#result").text(result).removeClass("hidden");
+     
     });
 });
