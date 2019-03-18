@@ -1,40 +1,71 @@
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="main.js"></script>
-    <title>君は国民年金のどんな被保険者だい？</title>
-</head>
-<body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>君は国民年金のどんな被保険者だい？</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
 
-    <h1>国民年金のどんな被保険者なんだい？</h1>
-    <p>何号被保険者か知りたいときにどうぞ♪</p>
-    <p>
-        <label><input type="checkbox" id="koseinenkin" value="true" >厚生年金被保険者</label>
-    </p>
+        <h2 class="ui center aligned header">国民年金のどんな被保険者</h2>
+        <div class="ui container">
+            <div class="ui segments">
+                <div class="ui segment">
+                    <div class="ui form">
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="koseinenkin">
+                                <label>厚生年金被保険者</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="hihuyou">
+                                <label>被扶養者</label>
+                            </div>
+                        </div>
 
-    <p>
-        <label><input type="checkbox" id="hihuyou" value="true" >被扶養者</label>
-    </p>
-    <p><label>年齢：<input type="text" id="age" size="40" maxlength="20" value="30"></label></p>
+                        <div class="field">
+                            <label>年齢</label>
+                            <input id="age" type="text" value="30">
+                        </div>
+                        
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="birthday">
+                                <label>昭和40年4月1日以前生まれ</label>
+                            </div>
+                        </div>
 
-    <p>
-        <label><input type="checkbox" id="birthday" value="true" >昭和40年4月1日以前生まれ</label>
-    </p>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="addressJp">
+                                <label>日本居住</label>
+                            </div>
+                        </div>
 
-    <p>
-        <label><input type="checkbox" id="addressJp" value="true" checked="checked">日本居住</label>
-    </p>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="hasJapan">
+                                <label>日本国籍</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="jukyu">
+                                <label>老齢給付受給資格</label>
+                            </div>
+                        </div>
+                        <p><input type="submit" class="ui blue button" id="calc" value="何被保険者かな？"></p>
 
-    <p>
-        <label><input type="checkbox" id="hasJapan" value="true" checked="checked">日本国籍</label>
-    </p>
-    
-
-    
-    <p>
-        <label><input type="checkbox" id="jukyu" value="true" >老齢給付受給資格</label>
-    </p>
-    <p><input type="submit" id="calc" value="何被保険者かな？"></p>
-
-    <div id="result"></div>
-
-</body>
+                        <div class="ui green hidden message" id="result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
