@@ -1,0 +1,218 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>国民年金保険料の免除チャレンジ</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="menjo.js"></script>
+    </head>
+    <body>
+
+        <h2 class="ui center aligned header">国民年金保険料の免除チャレンジ</h2>
+        <div class="ui container">
+            <div class="ui segments">
+                <div class="ui segment">
+                    <div class="ui form">
+
+                        <div class="inline fields">
+                            <label>何号被保険者？</label>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="hihokensha1" name="hihokensha" value="1" checked="checked">
+                                <label for="hihokensha1">第1号被保険者</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="hihokensha2" name="hihokensha" value="2" >
+                                <label for="hihokensha2">第2号被保険者</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="hihokensha3" name="hihokensha" value="3" >
+                                <label for="hihokensha3">第3号被保険者</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="hihokensha4" name="hihokensha" value="4" >
+                                <label for="hihokensha4">第1号被保険者であった（時効になってない）</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="sanzensango">
+                                <label for="sanzensango">産前産後免除あり</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="shogaikiso">
+                                <label for="shogaikiso">障害基礎年金を受ける</label>
+                            </div>
+                        </div>
+
+                        <div class="inline fields">
+                            <label>障害厚生年金について</label>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="shogaikousei1" value="1" name="shogaikousei">
+                                <label for="shogaikousei1">3級</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="shogaikousei2" value="2" name="shogaikousei">
+                                <label for="shogaikousei2">2級</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="shogaikousei3" value="3" name="shogaikousei">
+                                <label for="shogaikousei3">1級</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="shogaikousei4" value="4" name="shogaikousei" checked="checked">
+                                <label for="shogaikousei4">なし</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="shogaikyu">
+                                <label for="shogaikyu">旧法の障害年金を受ける</label>
+                            </div>
+                        </div>
+
+                        <div class="inline fields">
+                            <label>生活保護について</label>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="seikatsuhogo1" value="1" name="seikatsuhogo">
+                                <label for="seikatsuhogo1">生活扶助を受ける</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="seikatsuhogo2" value="2" name="seikatsuhogo">
+                                <label for="seikatsuhogo2">生活扶助以外を受ける</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="seikatsuhogo3" value="3" name="seikatsuhogo" checked="checked">
+                                <label for="seikatsuhogo3">生活保護受けてない</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="shisetsu">
+                                <label for="shisetsu">一定の施設（ハンセン病療養所等）</label>
+                            </div>
+                        </div>
+                        <div class="inline fields">
+                            <label>世帯主は免除事由に・・・</label>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="setainushi1" value="1" name="setainushi" checked="checked">
+                                <label for="setainushi1">該当する</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="setainushi2" value="2" name="setainushi">
+                                <label for="setainushi2">該当しない</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inline fields">
+                            <label>配偶者は免除事由に・・・</label>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="haigusha1" value="1" name="haigusha" checked="checked">
+                                <label for="haigusha1">該当する</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                <input type="radio" id="haigusha2" value="2" name="haigusha">
+                                <label for="haigusha2">該当しない</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>扶養親族の数</label>
+                            <input id="huyouNum" type="text" value="0">
+                        </div>
+
+                        <div class="field">
+                            <label>前年所得（単位：万円）</label>
+                            <input id="shotoku" type="text" value="30">
+                        </div>
+                        
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="tensai">
+                                <label for="tensai">天災、失業、その他の事由あり</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" id="shogaikafu">
+                                <label for="shogaikafu">国税法に定める障害者または寡婦</label>
+                            </div>
+                        </div>
+                        <div class="inline fields">
+                            <label>チャレンジ内容</label>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" id="charange1" name="charange" checked="checked">
+                                    <label for="charange1">法定免除</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" id="charange2" name="charange">
+                                    <label for="charange2">申請免除</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" id="charange6" name="charange">
+                                    <label for="charange6">納付猶予</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" id="charange7" name="charange">
+                                    <label for="charange7">学生納付特例</label>
+                                </div>
+                            </div>
+                        </div>
+                    
+                      
+                        <input type="submit" class="ui blue button" id="calc" value="免除にチャレンジ！">
+
+                        <div class="ui green message">
+                            <p>※納付猶予チャレンジはH37年6月までの期間において、50歳に達する日の属する月の前月・・・・。</p>
+                            <p>※学生納付特例は学生の間・・・。</p>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
