@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <p>書籍情報をゲットする</p>
+        <script>
+        function getBookInfo(){
+            var isbn = document.getElementById("isbn").value;
+
+            var xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.onreadystatechange = function()
+            {
+                if( this.readyState == 4 && this.status == 200 )
+                {
+                    if(this.response){
+                        console.log(this.response);
+
+                        let book_info =this.response[0];
+                        let div = document.getElementById("summary");
+
+                        let p1 = document.createElement("p");//タイトル
+                        let p2 = document.createElement("p");//著者
+                        let img = document.createElement("img");//本の表紙絵
+
+                        p1.innerText=book_info.summary.title;
+                        p2.innerText=book_info.summary.author;
+                        img.setAttribute("src",book_info.summary.cover);
+
+                        div.appendChild(p1);
+                        div.appendChild(p2);
+                        div.appendChild(img);
+                    }
+                }
+            }
+
+            xmlHttpRequest.open( 'GET', 'https://api.openbd.jp/v1/get?isbn='+isbn, true );
+            xmlHttpRequest.responseType = 'json';
+            xmlHttpRequest.send( null );
+        }
+
+            </script>
+
+<button type="button" onclick="getBookInfo()">本の情報をゲット！</button>
+<input type="text" id="isbn">
+<div id='summary'>
+
+</div>
+    </body>
+</html>
