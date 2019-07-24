@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <p>テスト</p>
+        <script type="text/javascript">
+        function sendData(){
+
+           var xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.onreadystatechange = function()
+            {
+                if( this.readyState == 4 && this.status == 200 )
+                {
+                    if( this.response )
+                    {
+                        console.log(this.response);
+                        // 読み込んだ後処理したい内容をかく
+                        
+                    }
+                }
+            }
+
+            xmlHttpRequest.open( 'GET', 'http://zipcloud.ibsnet.co.jp/api/search?zipcode=7830060', true );
+            xmlHttpRequest.responseType = 'json';
+            xmlHttpRequest.send( null );
+        }
+
+            </script>
+
+<button type="button" onclick="sendData({'limit':100,'table_name':'Category'})">Click Me!</button>
+<input type="text" value="">
+    </body>
+</html>
