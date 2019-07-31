@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+let x_zahyo = 100;
+let y_zahyo = 100;
+let ctx;
+let img;
+
+function start() {
+	let canvas = document.getElementById ('canvas');
+    ctx = canvas.getContext ('2d');   // キャンバスからコンテキストを取得
+    img = new Image();
+    img.src = "dance.png";
+    timerID= setInterval(() => {
+        ctx.clearRect (0 , 0 , 600 , 400);
+	    ctx.drawImage (img , x_zahyo , y_zahyo, 100, 100);
+    }, 50);
+}
+
+//キー操作された時の処理
+function keydownfunc () {
+	switch (event.keyCode) {
+        //1P
+		case 37://←キーが押された場合の番号
+            x_zahyo -= 5;//x座標を5px減らす（左に動かす）
+			break;//ここでブレークしないと下のコードが実行されてしまう
+		case 39://→キーが押された場合の番号
+			x_zahyo += 5;//x座標を5px増やす（右に動かす）
+			break;
+		case 38://↑キーが押された場合の番号
+            y_zahyo -= 5;//y座標を5px減らす（上に動かす）
+			break;
+		case 40://↓キーが押された場合の番号
+			y_zahyo += 5;//y座標を5px増やす（下に動かす）
+            break;
+    }
+}
+</script>
+<style>
+    #canvas{
+        background-color:skyblue;
+    }
+</style>
+</head>
+<body onload="start()" onkeydown="keydownfunc()">
+    <h1>うさぎが動く</h1>
+    <p>矢印キーで動くよ</p>
+	<canvas id="canvas" width=600 height=400  ></canvas>
+</body>
+</html>

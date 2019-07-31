@@ -1,0 +1,71 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+
+let ctx;
+let img;
+
+init();
+
+function init(){
+    img = new Image();
+    img.src = "reiwa.png";
+}
+
+function start(){
+	let canvas = document.getElementById ('canvas');
+    ctx = canvas.getContext ('2d');   // キャンバスからコンテキストを取得
+    ctx.drawImage (img ,0, 0);
+    ctx.fillStyle = 'rgb(255,255,255)'; //塗りつぶしの色
+    ctx.fillRect (230, 60, 110, 160);
+ 
+}
+
+function draw_txt() {
+    clear_txt();
+    let txt = document.getElementById("txt").value;
+    let txt_arry = txt.split('');
+    ctx.fillStyle = 'rgb(0,0,0)'; //塗りつぶしの色
+    if(txt_arry.length === 1){
+        ctx.font = "bold 100px 'HG正楷書体-PRO'";
+        ctx.fillText(txt_arry[0] , 230, 180 , 110); 
+    }else if(txt_arry.length === 2){
+        ctx.font = "bold 80px 'HG正楷書体-PRO'";
+        for(let i=0 ;i<2;i++){
+            ctx.fillText(txt_arry[i] , 240, 130+i*80 , 110); 
+        }
+    }else if(txt_arry.length > 2){
+        ctx.font = "bold 55px 'HG正楷書体-PRO'";
+        for(let i=0 ;i<3;i++){
+            ctx.fillText(txt_arry[i] , 255, 110+i*55 , 110); 
+        }       
+    }
+
+}
+
+function clear_txt(){
+    ctx.fillStyle = 'rgb(255,255,255)'; //塗りつぶしの色
+    ctx.fillRect (230, 60, 110, 170);
+}
+
+function k_enter(){
+    if(event.keyCode===13){
+        draw_txt();
+    }
+}
+
+</script>
+</head>
+<body onload="start()">
+    <h1>元号ジェネレータ</h1>
+    <div>
+        <canvas id="canvas" width=380 height=500></canvas>
+    </div>    
+    <div>
+        <input type="text" id="txt" onkeydown="k_enter()">
+        <button onclick="draw_txt()">発表</button>
+        <button onclick="clear_txt()">クリア</button>
+    </div>
+</body>
+</html>

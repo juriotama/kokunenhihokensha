@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+//canvasのサイズ
+const c_W =600;
+const c_H =600;
+
+let Blush=false;
+let ctx
+let x,y,mouseX,mouseY;
+
+function start(){
+    let canvas = document.getElementById("canvas"); 
+    canvas.setAttribute("width",c_W);
+    canvas.setAttribute("height",c_H);
+
+    ctx = canvas.getContext('2d'); 
+    ctx.strokeStyle = 'rgb(00,00,255)';//線の色
+    ctx.fillStyle = 'rgb(0,255,255)'; //塗りつぶしの色
+    ctx.fillRect(0,0,c_W,c_H);
+}
+
+function m_move(){ 
+    mouseX = event.pageX;
+    mouseY = event.pageY;
+    if(Blush){ 
+        ctx.lineWidth = 5;
+        ctx.beginPath(); 
+        ctx.moveTo(x, y);
+        ctx.lineTo(mouseX, mouseY);
+        ctx.stroke();
+    }
+    x =mouseX;
+    y =mouseY; 
+}
+
+function m_down(){ 
+    Blush=true;
+}
+
+function m_up(){ 
+    Blush=false; 
+}
+
+function cleareCanvas(){
+    ctx.clearRect(0,0,c_W,c_H);
+    ctx.fillRect(0,0,c_W,c_H);
+}
+
+//canvasの画像を保存（コピペソース）
+function saveCanvas(canvas_id)
+{
+	var canvas = document.getElementById(canvas_id);
+	//アンカータグを作成
+	var a = document.createElement('a');
+	//canvasをJPEG変換し、そのBase64文字列をhrefへセット
+	a.href = canvas.toDataURL('image/png', 0.85);
+	//ダウンロード時のファイル名を指定
+	a.download = 'download.png';
+	//クリックイベントを発生させる
+	a.click();
+}
+
+</script>
+</head>
+<body onload="start()" onmousemove="m_move()" onmousedown="m_down()" onmouseup="m_up()">
+    <canvas id="canvas"></canvas>
+    <div>
+        <button onclick="saveCanvas('canvas')">保存</button>
+        <button onclick="cleareCanvas()">クリア</button>
+    </div>
+</body>
+</html>
