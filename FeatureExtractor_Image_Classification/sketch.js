@@ -20,7 +20,20 @@ let badgerImages = 0;
 function setup() {
   noCanvas();
   // Create a video element
-  video = createCapture(VIDEO);
+  var constraints = {
+    audio: false,
+    video: {
+      facingMode: {
+        exact: "environment"
+      }
+    }    
+    // video: {
+    //   facingMode: "user"
+    // } 
+  };
+  video = createCapture(constraints);
+  //console.log(VIDEO);
+
   video.parent('videoContainer');
   video.size(320, 240);
 
