@@ -20,18 +20,8 @@ let badgerImages = 0;
 function setup() {
   noCanvas();
   // Create a video element
-  var constraints = {
-    audio: false,
-    video: {
-      facingMode: {
-        exact: "environment"
-      }
-    }    
-    // video: {
-    //   facingMode: "user"
-    // } 
-  };
-  video = createCapture(constraints);
+
+  video = createCapture(VIDEO);
   //console.log(VIDEO);
 
   video.parent('videoContainer');
@@ -131,3 +121,25 @@ function gotResults(err, results) {
     classify();
   }
 }
+const start = () => {
+  // カメラの使用が許可されたら、
+  // スマホなどのリアカメラ用
+  navigator.mediaDevices.getUserMedia({
+      video: {
+          facingMode: {
+              exact: "environment"
+          }
+      }
+  })
+
+  // PCのカメラ用
+  //navigator.mediaDevices.getUserMedia({video: true})
+  .then(async(stream) => {
+      // 動画のストリームを<video>要素に割り当てる。
+      video.srcObject = stream;
+      // MobileNetのモデルを読み込む。
+      model = await mobilenet.load();;
+      setListener();
+  });
+}
+start();
