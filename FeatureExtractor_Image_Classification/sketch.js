@@ -21,7 +21,15 @@ function setup() {
   noCanvas();
   // Create a video element
 
-  video = createCapture(VIDEO);
+  //video = createCapture(VIDEO);
+   video = createCapture({
+    audio: false,
+    video: {
+      facingMode: {
+        exact: "environment"
+      }
+    }
+  });
   //console.log(VIDEO);
 
   video.parent('videoContainer');
