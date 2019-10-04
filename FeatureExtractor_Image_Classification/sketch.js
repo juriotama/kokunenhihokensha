@@ -13,9 +13,9 @@ let featureExtractor;
 let classifier;
 let video;
 let loss;
-let dogImages = 0;
-let catImages = 0;
-let badgerImages = 0;
+let manImages = 0;
+let womanImages = 0;
+let skyImages = 0;
 
 function setup() {
   noCanvas();
@@ -61,27 +61,27 @@ function classify() {
 // A util function to create UI buttons
 function setupButtons() {
   // When the Cat button is pressed, add the current frame
-  // from the video with a label of "cat" to the classifier
-  buttonA = select('#catButton');
+  // from the video with a label of "woman" to the classifier
+  buttonA = select('#womanButton');
   buttonA.mousePressed(function() {
-    classifier.addImage('cat');
-    select('#amountOfCatImages').html(catImages++);
+    classifier.addImage('woman');
+    select('#amountOfCatImages').html(womanImages++);
   });
 
   // When the Dog button is pressed, add the current frame
-  // from the video with a label of "dog" to the classifier
-  buttonB = select('#dogButton');
+  // from the video with a label of "man" to the classifier
+  buttonB = select('#manButton');
   buttonB.mousePressed(function() {
-    classifier.addImage('dog');
-    select('#amountOfDogImages').html(dogImages++);
+    classifier.addImage('man');
+    select('#amountOfDogImages').html(manImages++);
   });
 
   // When the Dog button is pressed, add the current frame
-  // from the video with a label of "dog" to the classifier
-  buttonC = select('#badgerButton');
+  // from the video with a label of "sky" to the classifier
+  buttonC = select('#skyButton');
   buttonC.mousePressed(function() {
-    classifier.addImage('badger');
-    select('#amountOfBadgerImages').html(badgerImages++);
+    classifier.addImage('sky');
+    select('#amountOfBadgerImages').html(skyImages++);
   });
 
   // Train Button
