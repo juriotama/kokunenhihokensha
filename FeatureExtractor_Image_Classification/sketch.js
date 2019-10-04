@@ -13,22 +13,15 @@ let featureExtractor;
 let classifier;
 let video;
 let loss;
-let manImages = 0;
-let womanImages = 0;
-let skyImages = 0;
+let dogImages = 0;
+let catImages = 0;
+let badgerImages = 0;
 
 function setup() {
   noCanvas();
   // Create a video element
 
-  video = createCapture({
-    audio: false,
-    video: {
-      facingMode: {
-        exact: "environment"
-      }
-    }
-  });
+  video = createCapture(VIDEO);
   //console.log(VIDEO);
 
   video.parent('videoContainer');
@@ -61,27 +54,27 @@ function classify() {
 // A util function to create UI buttons
 function setupButtons() {
   // When the Cat button is pressed, add the current frame
-  // from the video with a label of "woman" to the classifier
-  buttonA = select('#womanButton');
+  // from the video with a label of "cat" to the classifier
+  buttonA = select('#catButton');
   buttonA.mousePressed(function() {
-    classifier.addImage('woman');
-    select('#amountOfCatImages').html(womanImages++);
+    classifier.addImage('cat');
+    select('#amountOfCatImages').html(catImages++);
   });
 
   // When the Dog button is pressed, add the current frame
-  // from the video with a label of "man" to the classifier
-  buttonB = select('#manButton');
+  // from the video with a label of "dog" to the classifier
+  buttonB = select('#dogButton');
   buttonB.mousePressed(function() {
-    classifier.addImage('man');
-    select('#amountOfDogImages').html(manImages++);
+    classifier.addImage('dog');
+    select('#amountOfDogImages').html(dogImages++);
   });
 
   // When the Dog button is pressed, add the current frame
-  // from the video with a label of "sky" to the classifier
-  buttonC = select('#skyButton');
+  // from the video with a label of "dog" to the classifier
+  buttonC = select('#badgerButton');
   buttonC.mousePressed(function() {
-    classifier.addImage('sky');
-    select('#amountOfBadgerImages').html(skyImages++);
+    classifier.addImage('badger');
+    select('#amountOfBadgerImages').html(badgerImages++);
   });
 
   // Train Button
