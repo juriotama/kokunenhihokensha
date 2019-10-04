@@ -21,7 +21,14 @@ function setup() {
   noCanvas();
   // Create a video element
 
-  video = createCapture(VIDEO);
+  video = createCapture({
+    audio: false,
+    video: {
+      facingMode: {
+        exact: "environment"
+      }
+    }
+  });
   //console.log(VIDEO);
 
   video.parent('videoContainer');
@@ -121,25 +128,3 @@ function gotResults(err, results) {
     classify();
   }
 }
-const start = () => {
-  // カメラの使用が許可されたら、
-  // スマホなどのリアカメラ用
-  navigator.mediaDevices.getUserMedia({
-      video: {
-          facingMode: {
-              exact: "environment"
-          }
-      }
-  })
-
-  // PCのカメラ用
-  //navigator.mediaDevices.getUserMedia({video: true})
-  .then(async(stream) => {
-      // 動画のストリームを<video>要素に割り当てる。
-      video.srcObject = stream;
-      // MobileNetのモデルを読み込む。
-      model = await mobilenet.load();;
-      setListener();
-  });
-}
-start();
